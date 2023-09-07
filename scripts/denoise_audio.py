@@ -5,7 +5,7 @@ raw_audio_dir = "./raw_audio/"
 denoise_audio_dir = "./denoised_audio/"
 filelist = list(os.walk(raw_audio_dir))[0][2]
 # 2023/4/21: Get the target sampling rate
-with open("./configs/finetune_speaker.json", 'r', encoding='utf-8') as f:
+with open("./configs/config.json", 'r', encoding='utf-8') as f:
     hps = json.load(f)
 target_sr = hps['data']['sampling_rate']
 for file in filelist:
