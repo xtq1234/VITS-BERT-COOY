@@ -57,7 +57,7 @@ if __name__ == "__main__":
             start_time = seg['start']
             end_time = seg['end']
             text = seg['text']
-            text = lang2token[lang] + text.replace("\n", "") + lang2token[lang]
+            text = "ZH|" + text.replace("\n", "")
             text = text + "\n"
             wav_seg = wav[:, int(start_time*sr):int(end_time*sr)]
             wav_seg_name = f"{character_name}_{code}_{i}.wav"
