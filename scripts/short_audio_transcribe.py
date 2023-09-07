@@ -57,7 +57,7 @@ if __name__ == "__main__":
     total_files = sum([len(files) for r, d, files in os.walk(parent_dir)])
     # resample audios
     # 2023/4/21: Get the target sampling rate
-    with open("./configs/finetune_speaker.json", 'r', encoding='utf-8') as f:
+    with open("./configs/config.json", 'r', encoding='utf-8') as f:
         hps = json.load(f)
     target_sr = hps['data']['sampling_rate']
     processed_files = 0
@@ -116,6 +116,6 @@ if __name__ == "__main__":
     # for speaker in speaker_names:
     #     hps['speakers'][speaker] = speaker2id[speaker]
     # # save modified config
-    # with open("./configs/modified_finetune_speaker.json", 'w', encoding='utf-8') as f:
+    # with open("./filelists/short_character_anno.list", 'w', encoding='utf-8') as f:
     #     json.dump(hps, f, indent=2)
     # print("finished")
