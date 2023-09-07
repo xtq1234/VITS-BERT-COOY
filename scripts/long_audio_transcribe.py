@@ -29,7 +29,7 @@ if __name__ == "__main__":
             'zh': "[ZH]",
         }
     assert(torch.cuda.is_available()), "Please enable GPU in order to run Whisper!"
-    with open("./configs/finetune_speaker.json", 'r', encoding='utf-8') as f:
+    with open("./configs/config.json", 'r', encoding='utf-8') as f:
         hps = json.load(f)
     target_sr = hps['data']['sampling_rate']
     model = whisper.load_model(args.whisper_size)
@@ -70,6 +70,6 @@ if __name__ == "__main__":
     if len(speaker_annos) == 0:
         print("Warning: no long audios & videos found, this IS expected if you have only uploaded short audios")
         print("this IS NOT expected if you have uploaded any long audios, videos or video links. Please check your file structure or make sure your audio/video language is supported.")
-    with open("./long_character_anno.txt", 'w', encoding='utf-8') as f:
+    with open("./filelists/short_character_anno.list", 'w', encoding='utf-8') as f:
         for line in speaker_annos:
             f.write(line)
