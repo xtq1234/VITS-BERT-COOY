@@ -5,7 +5,7 @@ import torchaudio
 
 
 def main():
-    with open("./configs/finetune_speaker.json", 'r', encoding='utf-8') as f:
+    with open("./configs/config.json", 'r', encoding='utf-8') as f:
         hps = json.load(f)
     target_sr = hps['data']['sampling_rate']
     filelist = list(os.walk("./sampled_audio4ft"))[0][2]
