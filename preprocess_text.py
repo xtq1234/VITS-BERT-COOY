@@ -51,6 +51,9 @@ if 2 in stage:
     with open( train_path,"w", encoding='utf-8') as f:
         for line in train_list:
             f.write(line)
+
+    file_path = transcription_path+'.cleaned'
+    shutil.copy(file_path,'./filelists/train.list')
     
     with open(val_path, "w", encoding='utf-8') as f:
         for line in val_list:
@@ -59,6 +62,7 @@ if 2 in stage:
 if 3 in stage:
     assert 2 in stage
     config = json.load(open(config_path, encoding='utf-8'))
+    config['data']["n_speakers"] = current_sid #
     config["data"]['spk2id'] = spk_id_map
     with open(config_path, 'w', encoding='utf-8') as f:
         json.dump(config, f, indent=2, ensure_ascii=False)
